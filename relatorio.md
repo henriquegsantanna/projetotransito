@@ -30,6 +30,4 @@ Filtrei as colunas `pessoas`, `mortos`, `feridos_leves`, `feridos_graves`, `iles
 Como houve pessoas mortas no acidente, alterei a coluna `classificacao_acidente` de nulo para "Com Vítimas Fatais".
 
 2-
-Criei o "df_clean" somente com os indicadores `causa_acidente`, `tipo_acidente`, `fase_dia` e `condicao_metereologica`, para ser utilizado para responder a pergunta central do projeto.
-
-A variável `classificacao_acidente` foi definida como variável-alvo.
+(implementar coluna criada - variavel preditora)
