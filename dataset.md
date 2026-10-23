@@ -11,6 +11,7 @@ Neste projeto, foi utilizado o dataset [Acidentes 2025(Agrupados por ocorrência
 
 ## Descrição dos Atributos
 Abaixo está o [Dicionário de Dados - Infrações](https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dicionario-infracoes) disponibilizado pela PRF no site do GOV, que descreve cada atributo do dataset.
+
 ![alt text](/imagens/Captura%20de%20tela%202026-10-23%20092336.png)
 ![alt text](/imagens/Captura%20de%20tela%202026-10-23%20092400.png)
 
@@ -19,11 +20,14 @@ O atributo `classificacao_acidente` classifica os acidentes em 3 situações:
 -   Sem Vítimas
 -   Com Vítimas Feridas
 -   Com Vítimas Fatais
+
 ![alt text](/imagens/image.png)
 
 ## Valores faltantes
 Foram identificados poucos valores nulos/faltantes no dataset e que não irão comprometer a análise.
+
 ![alt text](/imagens/image2.png)
+
 -   1 valor nulo na coluna `classificacao_acidente`
 -   2 valores nulos na coluna `regional` (não será utilizado na análise)
 -   22 valores nulos na coluna `delegacia` (não será utilizado na análise)
