@@ -3,7 +3,7 @@
 ## Entendimento do Negócio
 
 ### Definição do Problema e do Projeto
-O projeto tem como objetivo investigar e responder a seguinte pergunta: quais combinações de fatores aumentam a chance de um acidente ser grave(com vítimas feridas) ou fatal(com vítimas fatais)?
+O projeto tem como objetivo investigar e responder a seguinte pergunta: quais combinações de fatores aumentam a chance de um acidente ser grave ou fatal?
 
 Para isso, o problema será tratado como um problema de classificação, e para fazer essa investigação, será utilizado conceitos de Machine Learning para identificar quais atributos mais alteram o resultado na variável-alvo `classificação de um acidente`.
 
@@ -22,3 +22,14 @@ A variável `classificacao_acidente` foi definida como variável-alvo, contendo:
 A descrição detalhada dos atributos, da distribuição das classes e dos valores ausentes encontra-se no arquivo `descdataset.md`.
 
 ## Preparação dos Dados
+1-
+Filtrei as colunas `pessoas`, `mortos`, `feridos_leves`, `feridos_graves`, `ilesos`, `ignorados` e `feridos` da linha de índice 1 (linha que possuía valor nulo na coluna `classificacao_acidente`) e, de acordo com o resultado das colunas filtradas, classifiquei o acidente.
+
+![alt text](/imagens/image4.png)
+
+Como houve pessoas mortas no acidente, alterei a coluna `classificacao_acidente` de nulo para "Com Vítimas Fatais".
+
+2-
+Criei o "df_clean" somente com os indicadores `causa_acidente`, `tipo_acidente`, `fase_dia` e `condicao_metereologica`, para ser utilizado para responder a pergunta central do projeto.
+
+A variável `classificacao_acidente` foi definida como variável-alvo.
