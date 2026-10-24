@@ -72,3 +72,15 @@ Quantidade e proporção da classe `grave_ou_fatal`:
 
 6-
 Treino e teste:
+
+![alt text](/imagens/image12.png)
+
+-   Separei 20% para teste e 80% para treino.
+-   Usei stratify para evitar distorções e garantir consistência, já que as classes estavam divididas em quase 30/70.
+-   Usei random_state para garantir que o experimento seja repetível.
+
+Decidi utilizar OneHotEncoder para transformar colunas com palavras/textos em colunas binárias(0 ou 1), porém havia um problema: a coluna `causa_acidente` tinha 69 valores diferentes.
+
+![alt text](/imagens/image13.png)
+
+Então, filtrando os valores de menor frequência da coluna, decidi agrupar em "Outros" os 40 valores de menor frequência, já que, a soma desses valores foi de 4078 (5,62% de 72.529).
