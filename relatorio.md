@@ -83,4 +83,7 @@ Decidi utilizar OneHotEncoder para transformar colunas com palavras/textos em co
 
 ![alt text](/imagens/image13.png)
 
-Então, filtrando os valores de menor frequência da coluna, decidi agrupar em "Outros" os 40 valores de menor frequência, já que, a soma desses valores foi de 4078 (5,62% de 72.529).
+Então, filtrando os valores de menor frequência da coluna, decidi agrupar em "Outros" os valores que aparecerem menos que 300 vezes no conjunto de treino, aplicando a mesma regra de corte para o conjunto de teste.
+
+![alt text](/imagens/image14.png)
+
