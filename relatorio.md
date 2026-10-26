@@ -159,6 +159,63 @@ Analisando a Curva ROC:
 
 ![alt text](/imagens/image24.png)
 
--   AUC: 0.68, o desempenho do modelo é melhor que o modelo anterior, mas também é considerado **fraco**.
+-   AUC: 0.68, o desempenho do modelo é melhor que o modelo anterior.
 
 3-
+Novo modelo: DecisionTree
+
+![alt text](/imagens/image26.png)
+
+-   Acurácia global: 72%
+-   Classe 0 (majoritária): precision de 0.75, recall de 0.91 e f1-score de 0.82.
+-   Classe 1 (minoritária): precision de 0.52, recall de 0.24 e f1-score de 0.33.
+
+DecisionTree com ajuste de peso:
+
+![alt text](/imagens/image27.png)
+
+-   Acurácia global: de 72% para 62%
+-   Classe 0 (majoritária): recall caiu de 0.91 para 0.65 e f1-score caiu de 0.82 para 0.71.
+-   Classe 1 (minoritária): recall subiu de 0.24 para 0.54 e f1-score subiu de 0.33 para 0.44.
+
+Analisando a importância das variáveis:
+
+![alt text](/imagens/image28.png)
+
+-   Assim como nos outros modelos, Colisão frontal e Atropelamento de Pedestre dominam o topo da importância (somando mais de 24%).
+
+Analisando a Curva ROC:
+
+![alt text](/imagens/image29.png)
+
+-   AUC: 0.62, o desempenho do modelo é o menor entre os testados, sendo considerado **fraco**.
+
+4-
+Novo modelo: GradientBoosting
+
+![alt text](/imagens/image30.png)
+
+-   Acurácia global: 75%
+-   Classe 0 (majoritária): precision de 0.76, recall de 0.95 e f1-score de 0.85.
+-   Classe 1 (minoritária): precision de 0.66, recall de 0.23 e f1-score de 0.34.
+
+GradientBoosting com ajuste de peso:
+
+![alt text](/imagens/image31.png)
+
+-   Acurácia global: de 75% para 69%
+-   Classe 0 (majoritária): recall caiu de 0.95 para 0.76 e f1-score caiu de 0.85 para 0.78.
+-   Classe 1 (minoritária): recall subiu de 0.23 para 0.5 e f1-score subiu de 0.34 para 0.47.
+
+Analisando a importância das variáveis:
+
+![alt text](/imagens/image32.png)
+
+-   Colisão frontal e Atropelamento de Pedestre continuam liderando com folga, respondendo por mais de 60% da decisão do modelo.
+-   O modelo balanceado valorizou ocorrências como Incêndio.
+
+Analisando a Curva ROC:
+
+![alt text](/imagens/image33.png)
+
+-   AUC: 0.68, modelo com melhor desempenho juntamente ao modelo LogisticRegression.
