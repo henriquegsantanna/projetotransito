@@ -57,6 +57,7 @@ Criei a lista `colunas_clean` somente com as variáveis preditoras, e defini x =
 Após isso, conferi os 10 valores mais frequentes de cada coluna dentro da lista
 
 ![alt text](/imagens/image9.png)
+
 ![alt text](/imagens/image10.png)
 
 *De início, é possível notar que a maioria dos acidentes:
@@ -87,3 +88,15 @@ Então, filtrando os valores de menor frequência da coluna, decidi agrupar em "
 
 ![alt text](/imagens/image14.png)
 
+Decidi fazer o mesmo com as colunas `tipo_acidente` e `condicao_metereologica`.
+
+![alt text](/imagens/image15.png)
+
+![alt text](/imagens/image16.png)
+
+7-
+OneHotEncoding: transformando colunas com palavras/textos em colunas binárias(0 ou 1).
+
+![alt text](/imagens/image17.png)
+
+## Modelagem
