@@ -123,7 +123,7 @@ Analisando a importância das variáveis:
 
 ![alt text](/imagens/image20.png)
 
--   Colisão frontal e Atropelamento de pedestre são as variáveis que mais pesam nas decisões do RandomForest.
+-   Colisão frontal e Atropelamento de Pedestre lideram com folga a importância em ambos os cenários, mostrando que a dinâmica e a gravidade do acidente são os principais direcionadores do modelo.
 
 Analisando a Curva ROC:
 
@@ -134,3 +134,31 @@ Analisando a Curva ROC:
 
 2-
 Novo modelo: LogisticRegression
+
+![alt text](/imagens/image23.png)
+
+-   Acurácia global: 75%
+-   Classe 0 (majoritária): precision de 0.76, recall de 0.95 e f1-score de 0.84.
+-   Classe 1 (minoritária): precision de 0.65, recall de 0.24 e f1-score de 0.35.
+
+LogisticRegression com ajuste de peso:
+
+![alt text](/imagens/image22.png)
+
+-   Acurácia global: de 75% para 68%
+-   Classe 0 (majoritária): recall caiu de 0.76 para 0.74 e f1-score caiu de 0.84 para 0.77.
+-   Classe 1 (minoritária): recall caiu de 0.65 para 0.53 e f1-score subiu de 0.35 para 0.48.
+
+Analisando a importância das variáveis:
+
+![alt text](/imagens/image25.png)
+
+-   Os valores mudam pouco de um cenário para o outro, demonstrando uma grande consistência nas principais variáveis identificadas pelo modelo linear (Colisão frontal e Atropelamento de Pedestre)
+
+Analisando a Curva ROC:
+
+![alt text](/imagens/image24.png)
+
+-   AUC: 0.68, o desempenho do modelo é melhor que o modelo anterior, mas também é considerado **fraco**.
+
+3-
