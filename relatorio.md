@@ -100,3 +100,37 @@ OneHotEncoding: transformando colunas com palavras/textos em colunas binárias(0
 ![alt text](/imagens/image17.png)
 
 ## Modelagem
+1-
+Modelo base: RandomForest
+
+![alt text](/imagens/image18.png)
+
+-   Acurácia global: 72%
+-   Classe 0 (majoritária): precision de 0.76, recall de 0.90 e f1-score de 0.82.
+-   Classe 1 (minoritária): precision de 0.52, recall de 0.26 e f1-score de 0.35.
+
+*Devido ao desbalanceamento original das classes, a análise detalhada por métricas mostrou dificuldades na detecção da classe minoritária. Para melhorar isso, decidi ajustar os pesos das classes:
+
+![alt text](/imagens/image19.png)
+
+-   Acurácia global: caiu de 72% para 64%
+-   Classe 0 (majoritária): recall caiu de 0.90 para 0.70 e f1-score caiu de 0.82 para 0.74.
+-   Classe 1 (minoritária): recall subiu de 0.26 para 0.49 e f1-score subiu de 0.35 para 0.44.
+
+*Quando forçamos o modelo a prestar atenção na classe menor, ele começa a errar um pouco mais a classe maior para compensar, essa queda na acurácia global é como se fosse o "preço" que pagamos para deixar o modelo melhor.
+
+Analisando a importância das variáveis:
+
+![alt text](/imagens/image20.png)
+
+-   Colisão frontal e Atropelamento de pedestre são as variáveis que mais pesam nas decisões do RandomForest.
+
+Analisando a Curva ROC:
+
+![alt text](/imagens/image21.png)
+
+-   Com valor 0.63 de AUC, o desempenho do modelo é considerado **fraco**.
+-   A curva ROC está muito próxima da diagonal de referência, indicando que o modelo balanceado ainda encontra dificuldades para separar com clareza a classe minoritária da majoritária, gerando um número considerável de falsos positivos e falsos negativos.
+
+2-
+Novo modelo: LogisticRegression
