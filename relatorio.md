@@ -103,7 +103,47 @@ OneHotEncoding: transformando colunas com palavras/textos em colunas binárias(0
 
 ### Análise Exploratória
 
-(cruzamento de variáveis)
+Identificando quais combinações de fatores estão associadas a uma proporção maior de acidentes graves ou fatais:
+-   Taxa de gravidade = acidentes graves ou fatais ÷ total de acidentes da categoria ou combinação.
+-   Referência: taxa geral de 28,25%, uma categoria “aumenta a chance” só se ficar acima dela.
+-   Medidas de comparação: diferença em pontos percentuais (pp) e razão (taxa ÷ taxa geral)
+-   Mínimo de 100 acidentes por combinação.
+
+`tipo_acidente` × `fase_dia`:
+
+![alt text](/imagens/image34.png)
+
+-   O tipo de acidente foi o fator que mais separou a gravidade: Atropelamento de Pedestre (67,2%) e Colisão frontal (63,3%) ficaram mais de duas vezes acima da média, enquanto fatores de contexto, como dia da semana, fase do dia e clima, variaram pouco isoladamente.
+-   Atropelamento de pedestre à noite chegou a 72,6% de acidentes graves ou fatais, contra 58,7% durante o dia, enquanto a colisão frontal quase não mudou com o horário.
+
+`tipo_acidente` × `condicao_metereologica`:
+
+![alt text](image35.png)
+
+-   O clima altera pouco a gravidade dentro de cada tipo: Atropelamento de Pedestre ficou entre cerca de 55% e 68% e Colisão frontal entre 56% e 66% em todas as condições, enquanto a diferença entre os tipos de acidente passou de 40 pontos percentuais.
+-   Em chuva e garoa, a taxa ficou abaixo da registrada em céu claro na maioria dos tipos (ex: Capotamento 15% x 23%), padrão que se repete dentro de cada tipo.
+
+`tipo_acidente` × `clima`:
+
+![alt text](/imagens/image36.png)
+
+-   O clima altera pouco a gravidade dentro de cada tipo: Atropelamento de Pedestre variou entre 55% e 68% e Colisão frontal entre 56% e 66%, enquanto a diferença entre os tipos passou de 40 pontos percentuais.
+-   Em chuva e garoa, a taxa ficou abaixo da registrada em céu claro em vários tipos de grande volume, ex: Saída de leito carroçável (17% x 25%), Colisão com objeto (15% x 24%) e Colisão frontal (56% x 64%).
+-   Incêndio registrou 0% de acidentes graves ou fatais em todas as condições, o que sugere um tipo de ocorrência sem vítimas graves(dando a entender que conseguiram sair do carro antes do incêndio se propagar).
+
+Combinações com maior taxa de gravidade:
+
+![alt text](/imagens/image37.png)
+
+-   8 das 10 primeiras envolveram Atropelamento de Pedestre ou Colisão frontal, com taxas entre 58,7% e 73,0%, mais que o dobro da taxa geral (28,25%).
+-   As maiores taxas foram Atropelamento de Pedestre no amanhecer (73,0%, 141) e em plena noite (72,6%, 1.687), seguidas pela Colisão frontal no amanhecer (69,8%, 295) e em plena noite (63,9%, 2.067).
+
+Excesso de acidentes:
+
+![alt text](/imagens/image38.png)
+
+-   Para medir o impacto de cada combinação, foi calculado o excesso de acidentes graves ou fatais em relação ao esperado pela taxa geral (graves ou fatais observados - total multiplicado por 28,25%).
+-   Atropelamento de Pedestre em plena noite (excesso de 748), Colisão frontal em plena noite (737) e em pleno dia (712) e Atropelamento de Pedestre em pleno dia (316) se destacam.
 
 ### Modelos
 
@@ -226,3 +266,5 @@ Analisando a Curva ROC:
 ![alt text](/imagens/image33.png)
 
 -   AUC: 0.68, modelo com melhor desempenho juntamente ao modelo LogisticRegression.
+
+## Avaliação
