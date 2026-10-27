@@ -146,8 +146,8 @@ LogisticRegression com ajuste de peso:
 ![alt text](/imagens/image22.png)
 
 -   Acurácia global: de 75% para 68%
--   Classe 0 (majoritária): recall caiu de 0.76 para 0.74 e f1-score caiu de 0.84 para 0.77.
--   Classe 1 (minoritária): recall caiu de 0.65 para 0.53 e f1-score subiu de 0.35 para 0.48.
+-   Classe 0 (majoritária): recall caiu de 0.95 para 0.74 e f1-score caiu de 0.84 para 0.77.
+-   Classe 1 (minoritária): recall subiu de 0.24 para 0.53 e f1-score subiu de 0.35 para 0.48.
 
 Analisando a importância das variáveis:
 
