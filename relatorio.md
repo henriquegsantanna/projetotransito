@@ -100,6 +100,13 @@ OneHotEncoding: transformando colunas com palavras/textos em colunas binárias(0
 ![alt text](/imagens/image17.png)
 
 ## Modelagem
+
+### Análise Exploratória
+
+(cruzamento de variáveis)
+
+### Modelos
+
 1-
 Modelo base: RandomForest
 
