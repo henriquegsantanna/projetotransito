@@ -265,3 +265,40 @@ Analisando a Curva ROC:
 -   AUC: 0.68, modelo com melhor desempenho juntamente ao modelo LogisticRegression.
 
 ## Avaliação
+
+O objetivo do projeto era identificar quais combinações de fatores aumentam a chance de um acidente ser grave ou fatal:
+
+-   **Combinações de fatores (atingido):** o cruzamento de variáveis mostrou que a gravidade depende da combinação entre o tipo de acidente e o contexto. O efeito da fase do dia, por exemplo, varia conforme o tipo: no Atropelamento de Pedestre, a taxa foi de 72,6% em plena noite contra 58,7% em pleno dia (+14 pp), enquanto na Colisão frontal a diferença foi de 1,9 pp (63,9% contra 62,0%).
+-   **Combinações de maior impacto (atingido):** ao ordenar pelo excesso de acidentes graves ou fatais em relação ao esperado pela taxa geral (28,25%), destacaram-se Atropelamento de Pedestre em plena noite (748), Colisão frontal em plena noite (737), Colisão frontal em pleno dia (712) e Atropelamento de Pedestre em pleno dia (316). Essas quatro combinações reúnem 6.904 acidentes (cerca de 9,5% da base) e 4.464 acidentes graves ou fatais (cerca de 22% do total).
+-   **Fatores de contexto (atingido):** dia da semana, fase do dia e condição meteorológica variaram pouco quando analisados isoladamente. Chuva e garoa ficaram abaixo da taxa registrada em céu claro em vários tipos de acidente, padrão que a base não permite explicar.
+-   **Classificação da gravidade (parcialmente atingido):** os modelos conseguiram separar as classes melhor que o acaso, mas com desempenho médio a fraco (AUC entre 0,62 e 0,68).
+
+### Avaliação dos modelos
+
+Os 4 algoritmos foram avaliados no conjunto de teste (14.506), com e sem ajuste de peso das classes. Como a classe 1 (`grave_ou_fatal`) representa cerca de 28% dos casos, a acurácia isolada não é suficiente: um modelo que previsse sempre "sem gravidade" acertaria cerca de 71,75%. Por isso, a comparação considera principalmente o recall e o f1-score da classe 1.
+
+| Modelo | Acurácia | Recall (classe 1) | F1 (classe 1) | AUC |
+|---|---|---|---|---|
+| RandomForest | 72% | 0,26 | 0,35 | - |
+| RandomForest com peso | 64% | 0,49 | 0,44 | 0,63 |
+| LogisticRegression | 75% | 0,24 | 0,35 | - |
+| LogisticRegression com peso | 68% | 0,53 | 0,48 | 0,68 |
+| DecisionTree | 72% | 0,24 | 0,33 | - |
+| DecisionTree com peso | 62% | 0,54 | 0,44 | 0,62 |
+| GradientBoosting | 75% | 0,23 | 0,34 | - |
+| GradientBoosting com peso | 69% | 0,50 | 0,47 | 0,68 |
+
+Principais observações:
+
+-   Sem ajuste de peso, os modelos acertam a classe majoritária, mas acertam apenas cerca de um quarto dos acidentes graves ou fatais (recall entre 0,23 e 0,26). RandomForest e DecisionTree (72%) ficaram praticamente iguais à linha de base em acurácia.
+-   O ajuste de peso dobrou o recall da classe 1, porém com uma leve queda na acurácia. Esse é o "custo" de alertar mais casos graves, ao preço de mais alarmes falsos.
+-   Os melhores resultados foram da LogisticRegression e do GradientBoosting com peso (AUC 0,68 e f1 de 0,48 e 0,47).
+-   **Modelo escolhido: LogisticRegression com peso**, pelo melhor f1 da classe 1, pelo AUC equivalente ao do GradientBoosting e por ser o modelo mais simples e interpretável.
+-   Comparação entre treino e teste para verificar overfitting:
+
+![alt text](/imagens/image39.png)
+
+### Consistência entre a análise exploratória e os modelos
+
+-   Os quatro modelos apontaram as mesmas categorias de `tipo_acidente` como mais relevantes (Colisão frontal e Atropelamento de Pedestre), o que coincide com as maiores taxas de gravidade nos fatores isolados (67,2% e 63,3%).
+-   Essa convergência entre duas abordagens independentes (cruzamento de variáveis e modelagem) aumenta a confiança no resultado. Já o efeito combinado com a fase do dia só aparece com clareza no cruzamento, que por isso é a evidência principal para responder à pergunta do projeto.
