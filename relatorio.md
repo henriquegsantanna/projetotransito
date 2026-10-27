@@ -92,8 +92,6 @@ Decidi fazer o mesmo com as colunas `tipo_acidente` e `condicao_metereologica`.
 
 ![alt text](/imagens/image15.png)
 
-![alt text](/imagens/image16.png)
-
 7-
 OneHotEncoding: transformando colunas com palavras/textos em colunas binárias(0 ou 1).
 
@@ -113,12 +111,12 @@ Identificando quais combinações de fatores estão associadas a uma proporção
 
 ![alt text](/imagens/image34.png)
 
--   O tipo de acidente foi o fator que mais separou a gravidade: Atropelamento de Pedestre (67,2%) e Colisão frontal (63,3%) ficaram mais de duas vezes acima da média, enquanto fatores de contexto, como dia da semana, fase do dia e clima, variaram pouco isoladamente.
--   Atropelamento de pedestre à noite chegou a 72,6% de acidentes graves ou fatais, contra 58,7% durante o dia, enquanto a colisão frontal quase não mudou com o horário.
+-   O tipo de acidente foi o fator que mais separou a gravidade: Atropelamento de Pedestre e Colisão frontal ficaram mais de duas vezes acima da média, enquanto fatores de contexto, como dia da semana, fase do dia e clima, variaram pouco isoladamente.
+-   Atropelamento de pedestre à noite chegou a 72% de acidentes graves ou fatais, contra 59% durante o dia, enquanto a colisão frontal quase não mudou com o horário.
 
 `tipo_acidente` × `condicao_metereologica`:
 
-![alt text](image35.png)
+![alt text](/imagens/image35.png)
 
 -   O clima altera pouco a gravidade dentro de cada tipo: Atropelamento de Pedestre ficou entre cerca de 55% e 68% e Colisão frontal entre 56% e 66% em todas as condições, enquanto a diferença entre os tipos de acidente passou de 40 pontos percentuais.
 -   Em chuva e garoa, a taxa ficou abaixo da registrada em céu claro na maioria dos tipos (ex: Capotamento 15% x 23%), padrão que se repete dentro de cada tipo.
@@ -129,7 +127,6 @@ Identificando quais combinações de fatores estão associadas a uma proporção
 
 -   O clima altera pouco a gravidade dentro de cada tipo: Atropelamento de Pedestre variou entre 55% e 68% e Colisão frontal entre 56% e 66%, enquanto a diferença entre os tipos passou de 40 pontos percentuais.
 -   Em chuva e garoa, a taxa ficou abaixo da registrada em céu claro em vários tipos de grande volume, ex: Saída de leito carroçável (17% x 25%), Colisão com objeto (15% x 24%) e Colisão frontal (56% x 64%).
--   Incêndio registrou 0% de acidentes graves ou fatais em todas as condições, o que sugere um tipo de ocorrência sem vítimas graves(dando a entender que conseguiram sair do carro antes do incêndio se propagar).
 
 Combinações com maior taxa de gravidade:
 
