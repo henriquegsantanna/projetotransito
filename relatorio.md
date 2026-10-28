@@ -3,6 +3,7 @@
 ## Entendimento do Negócio
 
 ### Definição do Problema e do Projeto
+
 O projeto tem como objetivo investigar e responder a seguinte pergunta: quais combinações de fatores aumentam a chance de um acidente ser grave ou fatal? (As combinações serão analisadas pela taxa de gravidade por cruzamento de variáveis, mostrando as variáveis mais relevantes).
 
 Para isso, o problema será tratado como um problema de classificação binária, e para fazer essa investigação, serão utilizados conceitos de Machine Learning para identificar quais variáveis preditoras mais alteram o resultado na variável-alvo `grave_ou_fatal`, usando a coluna `gravidade` como auxiliar de três níveis.
@@ -10,6 +11,7 @@ Para isso, o problema será tratado como um problema de classificação binária
 A ODS relacionada a este projeto é a ODS 3 (Saúde e Bem-Estar), com o objetivo de reduzir mortes e lesões no trânsito.
 
 ## Entendimento dos Dados
+
 Dataset utilizado: [Acidentes 2025 (Agrupados por ocorrência)](https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dados-abertos-da-prf), disponibilizado pela Polícia Rodoviária Federal no site do GOV, reunindo informações sobre acidentes em rodovias federais em 2025.
 
 O dataset possui 72.529 linhas e 30 colunas (antes do tratamento), e foram identificados alguns valores nulos nas colunas `classificacao_acidente`, `regional`, `delegacia` e `uop`, porém em quantidade extremamente baixa, oque não afetará a análise(1 valor nulo em `classificacao_acidente`, 2 em `regional`, 22 em `delegacia` e 38 em `uop`, que não são usadas como variáveis preditoras). E por fim, não foi identificado nenhuma linha/valor duplicado.
@@ -23,6 +25,7 @@ A variável `classificacao_acidente` contém:
 A descrição detalhada dos atributos, da distribuição das classes e dos valores ausentes encontra-se no arquivo `descdataset.md`.
 
 ## Preparação dos Dados
+
 1-
 Filtrei as colunas `pessoas`, `mortos`, `feridos_leves`, `feridos_graves`, `ilesos`, `ignorados` e `feridos` da linha de índice 1 (linha que possuía valor nulo na coluna `classificacao_acidente`) e, de acordo com o resultado das colunas filtradas, classifiquei o acidente.
 
@@ -302,3 +305,20 @@ Principais observações:
 
 -   Os quatro modelos apontaram as mesmas categorias de `tipo_acidente` como mais relevantes (Colisão frontal e Atropelamento de Pedestre), o que coincide com as maiores taxas de gravidade nos fatores isolados (67,2% e 63,3%).
 -   Essa convergência entre duas abordagens independentes (cruzamento de variáveis e modelagem) aumenta a confiança no resultado. Já o efeito combinado com a fase do dia só aparece com clareza no cruzamento, que por isso é a evidência principal para responder à pergunta do projeto.
+
+## Conclusão
+
+Após todas as etapas do projeto, conclui-se que as combinações que mais aumentam a chance de gravidade de um acidente envolvem **Atropelamento de Pedestre** e **Colisão frontal**, principalmente em **plena noite**.
+
+Tendo como referência a taxa geral de 28,25% de acidentes graves ou fatais:
+
+-   O tipo de acidente foi o fator que mais separou a gravidade: Atropelamento de Pedestre (67,2%) e Colisão frontal (63,3%) ficaram mais de duas vezes acima da média, enquanto dia da semana, fase do dia e clima variaram pouco quando analisados isoladamente.
+-   O efeito do horário depende do tipo de acidente: no Atropelamento de Pedestre, a taxa foi de 72,6% em plena noite contra 58,7% em pleno dia (+14 pp), enquanto na Colisão frontal a diferença foi de apenas 1,9 pp (63,9% contra 62,0%).
+-   Ao medir o impacto pelo excesso de acidentes graves ou fatais em relação ao esperado, destacaram-se Atropelamento de Pedestre em plena noite, Colisão frontal em plena noite, Colisão frontal em pleno dia e Atropelamento de Pedestre em pleno dia (reunindo cerca de 9,5% dos acidentes e cerca de 22% dos graves ou fatais).
+
+### Contribuição dos modelos e ODS
+
+    Os quatro modelos de classificação (RandomForest, LogisticRegression, DecisionTree e GradientBoosting) tiveram desempenho de médio a fraco (AUC entre 0,62 e 0,68).
+-   O modelo escolhido foi LogisticRegression com ajuste de peso das classes (recall de 0,53, f1-score de 0,48 e AUC de 0,68 na classe grave ou fatal).
+-   Todos os modelos apontaram as mesmas categorias como mais relevantes, o que reforça os resultados do cruzamento de variáveis.
+-   O projeto desenvolvido tem relação com a ODS 3 (Saúde e Bem-Estar), que busca reduzir mortes e lesões no trânsito.
